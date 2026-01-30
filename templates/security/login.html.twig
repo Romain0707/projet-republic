@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+    <!-- Hero Section -->
+    <section class="hero hero--login">
+        <div class="container">
+            <div class="hero__content">
+                <h2 class="hero__title">Connexion</h2>
+                <p class="hero__subtitle">Accédez à votre espace personnel</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulaire de connexion -->
+    <section class="section">
+        <div class="container">
+            <form method="post" class="auth-form">
+                {% if error %}
+                    <div class="auth-form__alert auth-form__alert--danger">
+                        {{ error.messageKey|trans(error.messageData, 'security') }}
+                    </div>
+                {% endif %}
+
+                {% if app.user %}
+                    <div class="auth-form__alert auth-form__alert--info">
+                        Vous êtes connecté en tant que {{ app.user.userIdentifier }}, <a href="{{ logout_path() }}" style="color: inherit; text-decoration: underline;">Déconnexion</a>
+                    </div>
+                {% endif %}
+
+                <h1 class="auth-form__title">Se connecter</h1>
+                <p class="auth-form__subtitle">Entrez vos identifiants pour accéder à votre compte</p>
+
+                <div class="auth-form__field">
+                    <label for="username" class="auth-form__label">Nom d'utilisateur</label>
+                    <input type="text" 
+                           value="{{ last_username }}" 
+                           name="_username" 
+                           id="username" 
+                           class="auth-form__input" 
+                           autocomplete="username" 
+                           required 
+                           autofocus
+                           placeholder="Entrez votre nom d'utilisateur">
+                </div>
+
+                <div class="auth-form__field">
+                    <label for="password" class="auth-form__label">Mot de passe</label>
+                    <input type="password" 
+                           name="_password" 
+                           id="password" 
+                           class="auth-form__input" 
+                           autocomplete="current-password" 
+                           required
+                           placeholder="Entrez votre mot de passe">
+                </div>
+
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                <button class="auth-form__button" type="submit">
+                    Se connecter
+                </button>
+
+                <div class="auth-form__divider">
+                    <span class="auth-form__divider-text">ou</span>
+                </div>
+
+                <a href="{{ path('inscription') }}" class="auth-form__link">
+                    Créer un compte
+                </a>
+            </form>
+        </div>
+    </section>
+{% endblock %}
+

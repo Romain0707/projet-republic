@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Présentation{% endblock %}
+
+{% block body %}
+    <section class="hero hero--presentation">
+        <div class="container">
+            <div class="hero__content">
+                <h2 class="hero__title">Présentation de l'établissement</h2>
+                <p class="hero__subtitle">Découvrez notre collège, ses valeurs et son environnement</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Présentation -->
+    <section class="section">
+        <div class="container">
+            <div class="presentation-image">
+                <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200&h=400&fit=crop"
+                    alt="Collège Jacques Prévert - Bâtiment principal" class="presentation-image__img">
+            </div>
+            <div class="content-grid">
+                <div class="content-card">
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=250&fit=crop"
+                        alt="Salle de classe" class="content-card__image">
+                    <div class="content-card__icon">🎓</div>
+                    <h3 class="content-card__title">Notre mission</h3>
+                    <p class="content-card__text">Le Collège Jacques Prévert de Bergerac est un établissement d'enseignement secondaire dédié à l'excellence éducative et à l'épanouissement de chaque élève.</p>
+                    <p class="content-card__quote">"Former les citoyens de demain"</p>
+                </div>
+                <div class="content-card">
+                    <img src="https://images.unsplash.com/photo-1529390079861-591de354faf5?w=400&h=250&fit=crop"
+                        alt="Élèves en activité" class="content-card__image">
+                    <div class="content-card__icon">🌟</div>
+                    <h3 class="content-card__title">Nos valeurs</h3>
+                    <ul class="content-card__list">
+                        <li class="content-card__list-item">Excellence académique</li>
+                        <li class="content-card__list-item">Respect et bienveillance</li>
+                        <li class="content-card__list-item">Ouverture culturelle</li>
+                        <li class="content-card__list-item">Citoyenneté active</li>
+                    </ul>
+                </div>
+                <div class="content-card">
+                    <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=400&h=250&fit=crop"
+                        alt="Bergerac - Ville" class="content-card__image">
+                    <div class="content-card__icon">📍</div>
+                    <h3 class="content-card__title">Notre situation</h3>
+                    <p class="content-card__text">Implanté au cœur de Bergerac, le collège bénéficie d'un environnement privilégié et d'un accès facile aux équipements culturels et sportifs de la ville.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

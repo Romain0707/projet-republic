@@ -1,0 +1,152 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+    <section class="hero">
+        <div class="hero__image-wrapper">
+            <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1920&h=800&fit=crop"
+                alt="Collège Jacques Prévert - Vue extérieure" class="hero__image">
+            <div class="hero__overlay"></div>
+        </div>
+        <div class="container">
+            <div class="hero__content">
+                <h2 class="hero__title">Bienvenue au Collège Jacques Prévert</h2>
+                <p class="hero__subtitle">Un établissement d'enseignement secondaire dédié à l'excellence éducative et à
+                    l'épanouissement de chaque élève</p>
+                <div class="hero__stats">
+                    <div class="hero__stat">
+                        <span class="hero__stat-number">800+</span>
+                        <span class="hero__stat-label">Élèves</span>
+                    </div>
+                    <div class="hero__stat">
+                        <span class="hero__stat-number">60+</span>
+                        <span class="hero__stat-label">Enseignants</span>
+                    </div>
+                    <div class="hero__stat">
+                        <span class="hero__stat-number">25+</span>
+                        <span class="hero__stat-label">Classes</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Actualités -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section__title">Actualités</h2>
+            <p class="section__intro">Restez informé des dernières nouvelles de l'établissement</p>
+            <div class="news-grid">
+                <article class="news-card">
+                    <div class="news-card__image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&h=250&fit=crop"
+                            alt="Inscriptions rentrée 2024" class="news-card__image">
+                    </div>
+                    <div class="news-card__content-wrapper">
+                        <div class="news-card__date">
+                            <span class="news-card__date-day">15</span>
+                            <span class="news-card__date-month">JAN</span>
+                        </div>
+                        <div class="news-card__content">
+                            <h3 class="news-card__title">Inscriptions ouvertes pour la rentrée 2024</h3>
+                            <p class="news-card__text">Les inscriptions pour la rentrée scolaire 2024-2025 sont
+                                désormais ouvertes. Retrouvez toutes les informations nécessaires sur notre site.</p>
+                            <a href="#" class="news-card__link">En savoir plus →</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="news-card">
+                    <div class="news-card__image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=400&h=250&fit=crop"
+                            alt="Journée portes ouvertes" class="news-card__image">
+                    </div>
+                    <div class="news-card__content-wrapper">
+                        <div class="news-card__date">
+                            <span class="news-card__date-day">20</span>
+                            <span class="news-card__date-month">JAN</span>
+                        </div>
+                        <div class="news-card__content">
+                            <h3 class="news-card__title">Journée portes ouvertes</h3>
+                            <p class="news-card__text">Venez découvrir notre établissement lors de notre journée portes
+                                ouvertes le samedi 20 janvier de 9h à 12h.</p>
+                            <a href="#" class="news-card__link">En savoir plus →</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="news-card">
+                    <div class="news-card__image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=250&fit=crop"
+                            alt="Projet numérique" class="news-card__image">
+                    </div>
+                    <div class="news-card__content-wrapper">
+                        <div class="news-card__date">
+                            <span class="news-card__date-day">05</span>
+                            <span class="news-card__date-month">JAN</span>
+                        </div>
+                        <div class="news-card__content">
+                            <h3 class="news-card__title">Projet numérique : Initiation à la programmation</h3>
+                            <p class="news-card__text">Nouveau projet pédagogique : initiation à la programmation pour
+                                les élèves de 4ème et 3ème.</p>
+                            <a href="#" class="news-card__link">En savoir plus →</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="news-card">
+                    <div class="news-card__image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=400&h=250&fit=crop"
+                            alt="Spectacle fin d'année" class="news-card__image">
+                    </div>
+                    <div class="news-card__content-wrapper">
+                        <div class="news-card__date">
+                            <span class="news-card__date-day">20</span>
+                            <span class="news-card__date-month">DÉC</span>
+                        </div>
+                        <div class="news-card__content">
+                            <h3 class="news-card__title">Spectacle de fin d'année - Grand succès !</h3>
+                            <p class="news-card__text">Le spectacle de fin d'année a rencontré un vif succès.
+                                Félicitations à tous les élèves et enseignants participants.</p>
+                            <a href="#" class="news-card__link">En savoir plus →</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="news-card">
+                    <div class="news-card__image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=250&fit=crop"
+                            alt="Nouveau laboratoire" class="news-card__image">
+                    </div>
+                    <div class="news-card__content-wrapper">
+                        <div class="news-card__date">
+                            <span class="news-card__date-day">10</span>
+                            <span class="news-card__date-month">FÉV</span>
+                        </div>
+                        <div class="news-card__content">
+                            <h3 class="news-card__title">Ouverture du nouveau laboratoire de sciences</h3>
+                            <p class="news-card__text">Le collège inaugure un nouveau laboratoire équipé pour les
+                                classes de 4ème et 3ème avec du matériel moderne.</p>
+                            <a href="#" class="news-card__link">En savoir plus →</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="news-card">
+                    <div class="news-card__image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1529390079861-591de354faf5?w=400&h=250&fit=crop"
+                            alt="Sortie pédagogique" class="news-card__image">
+                    </div>
+                    <div class="news-card__content-wrapper">
+                        <div class="news-card__date">
+                            <span class="news-card__date-day">28</span>
+                            <span class="news-card__date-month">FÉV</span>
+                        </div>
+                        <div class="news-card__content">
+                            <h3 class="news-card__title">Sortie pédagogique au parc régional</h3>
+                            <p class="news-card__text">Les élèves de 6ème ont visité le parc régional pour un atelier
+                                sur la biodiversité et l'environnement.</p>
+                            <a href="#" class="news-card__link">En savoir plus →</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+{% endblock %}

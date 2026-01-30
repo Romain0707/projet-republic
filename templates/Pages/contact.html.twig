@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+    <!-- Hero Section -->
+    <section class="hero hero--contact">
+        <div class="container">
+            <div class="hero__content">
+                <h2 class="hero__title">Contact et informations pratiques</h2>
+                <p class="hero__subtitle">Comment nous joindre et nous trouver</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section class="section section--alt">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-card__icon">📍</div>
+                    <h3 class="contact-card__title">Adresse</h3>
+                    <address class="contact-card__address">
+                        Collège Jacques Prévert<br>
+                        Rue de l'École<br>
+                        24100 Bergerac<br>
+                        France
+                    </address>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-card__icon">📞</div>
+                    <h3 class="contact-card__title">Téléphone</h3>
+                    <p class="contact-card__text"><a href="tel:+33553XXXXXX" class="contact-card__link">05 53 XX XX XX</a></p>
+                    <p class="contact-card__note">Secrétariat ouvert du lundi au vendredi de 8h à 17h</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-card__icon">✉️</div>
+                    <h3 class="contact-card__title">Email</h3>
+                    <p class="contact-card__text"><a href="mailto:contact@college-jacques-prevert.fr" class="contact-card__link">contact@college-jacques-prevert.fr</a></p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-card__icon">🕐</div>
+                    <h3 class="contact-card__title">Horaires</h3>
+                    <p class="contact-card__text"><strong>Lundi - Vendredi:</strong> 8h00 - 17h00</p>
+                    <p class="contact-card__text"><strong>Mercredi:</strong> 8h00 - 12h00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+
+
+

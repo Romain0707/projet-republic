@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formations{% endblock %}
+
+{% block body %}
+    <!-- Hero Section -->
+    <section class="hero hero--formations">
+        <div class="container">
+            <div class="hero__content">
+                <h2 class="hero__title">Nos formations</h2>
+                <p class="hero__subtitle">Découvrez les différents cycles et options proposés par notre établissement</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Formations -->
+    <section class="section section--alt">
+        <div class="container">
+            <div class="formations-grid">
+                <div class="formation-card">
+                    <div class="formation-card__header">
+                        <span class="formation-card__icon">📚</span>
+                        <h3 class="formation-card__title">6ème</h3>
+                    </div>
+                    <div class="formation-card__body">
+                        <p class="formation-card__subtitle">Cycle d'adaptation</p>
+                        <p class="formation-card__text">Découverte du collège et consolidation des acquis de l'école élémentaire. Adaptation aux nouvelles méthodes de travail.</p>
+                    </div>
+                </div>
+                <div class="formation-card">
+                    <div class="formation-card__header">
+                        <span class="formation-card__icon">🔬</span>
+                        <h3 class="formation-card__title">5ème - 4ème</h3>
+                    </div>
+                    <div class="formation-card__body">
+                        <p class="formation-card__subtitle">Cycle central</p>
+                        <p class="formation-card__text">Approfondissement des connaissances et développement de l'autonomie. Découverte des enseignements optionnels.</p>
+                    </div>
+                </div>
+                <div class="formation-card">
+                    <div class="formation-card__header">
+                        <span class="formation-card__icon">🎯</span>
+                        <h3 class="formation-card__title">3ème</h3>
+                    </div>
+                    <div class="formation-card__body">
+                        <p class="formation-card__subtitle">Cycle d'orientation</p>
+                        <p class="formation-card__text">Préparation au lycée et au brevet des collèges. Orientation et choix de parcours pour la suite des études.</p>
+                    </div>
+                </div>
+                <div class="formation-card">
+                    <div class="formation-card__header">
+                        <span class="formation-card__icon">💻</span>
+                        <h3 class="formation-card__title">Options</h3>
+                    </div>
+                    <div class="formation-card__body">
+                        <p class="formation-card__subtitle">Enseignements optionnels</p>
+                        <ul class="formation-card__list">
+                            <li class="formation-card__list-item">Latin</li>
+                            <li class="formation-card__list-item">Langues vivantes (Anglais, Espagnol, Allemand)</li>
+                            <li class="formation-card__list-item">Arts plastiques</li>
+                            <li class="formation-card__list-item">Éducation musicale</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

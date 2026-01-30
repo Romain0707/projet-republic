@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+    <!-- Hero Section -->
+    <section class="hero hero--inscription">
+        <div class="container">
+            <div class="hero__content">
+                <h2 class="hero__title">Inscription</h2>
+                <p class="hero__subtitle">Créez votre compte pour accéder à tous les services</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulaire d'inscription -->
+    <section class="section">
+        <div class="container">
+            <form class="auth-form" method="post">
+                {{ form_start(inscription) }}
+                
+                <h1 class="auth-form__title">Créer un compte</h1>
+                <p class="auth-form__subtitle">Remplissez le formulaire ci-dessous pour vous inscrire</p>
+
+                <div class="auth-form__field">
+                    {{ form_label(inscription.username, null, {'label_attr': {'class': 'auth-form__label'}}) }}
+                    {{ form_widget(inscription.username, {'attr': {'class': 'auth-form__input' ~ (form_errors(inscription.username) ? ' error' : '')}}) }}
+                    {% if form_errors(inscription.username) %}
+                        <span class="form-error-message">{{ form_errors(inscription.username) }}</span>
+                    {% endif %}
+                </div>
+
+                <div class="auth-form__field">
+                    {{ form_label(inscription.email, null, {'label_attr': {'class': 'auth-form__label'}}) }}
+                    {{ form_widget(inscription.email, {'attr': {'class': 'auth-form__input' ~ (form_errors(inscription.email) ? ' error' : '')}}) }}
+                    {% if form_errors(inscription.email) %}
+                        <span class="form-error-message">{{ form_errors(inscription.email) }}</span>
+                    {% endif %}
+                </div>
+
+                <div class="auth-form__field">
+                    {{ form_label(inscription.password, null, {'label_attr': {'class': 'auth-form__label'}}) }}
+                    {{ form_widget(inscription.password, {'attr': {'class': 'auth-form__input' ~ (form_errors(inscription.password) ? ' error' : '')}}) }}
+                    {% if form_errors(inscription.password) %}
+                        <span class="form-error-message">{{ form_errors(inscription.password) }}</span>
+                    {% endif %}
+                </div>
+
+                <button type="submit" class="auth-form__button">
+                    S'inscrire
+                </button>
+
+                <div class="auth-form__divider">
+                    <span class="auth-form__divider-text">ou</span>
+                </div>
+
+                <a href="{{ path('app_login') }}" class="auth-form__link">
+                    Vous avez déjà un compte ? Se connecter
+                </a>
+
+                {{ form_end(inscription) }}
+            </form>
+        </div>
+    </section>
+{% endblock %}
+
+

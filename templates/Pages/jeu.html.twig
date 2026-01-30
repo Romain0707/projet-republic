@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+    <section class="hero hero--jeu">
+        <div class="container">
+            <div class="hero__content">
+                <h2 class="hero__title">Mémoire des Valeurs de la République</h2>
+                <p class="hero__subtitle">Retournez les cartes et trouvez les paires pour découvrir les valeurs
+                    républicaines !</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Jeu -->
+    <section class="section section--alt">
+        <div class="container">
+            <div class="jeu">
+                <div class="jeu__header">
+                    <div class="jeu__stats">
+                        <div class="jeu__stat">
+                            <span class="jeu__stat-label">Coups :</span>
+                            <span class="jeu__stat-value" id="moves">0</span>
+                        </div>
+                        <div class="jeu__stat">
+                            <span class="jeu__stat-label">Paires trouvées :</span>
+                            <span class="jeu__stat-value" id="pairs">0 / 8</span>
+                        </div>
+                        <div class="jeu__stat">
+                            <span class="jeu__stat-label">Temps :</span>
+                            <span class="jeu__stat-value" id="timer">00:00</span>
+                        </div>
+                        <div class="jeu__stat">
+                            <span class="jeu__stat-label">BestScore :</span>
+                            <span class="jeu__stat-value">{{ bScore }}</span>
+                        </div>
+                    </div>
+                    <button class="jeu__button" id="restartBtn">🔄 Nouvelle partie</button>
+                </div>
+
+                <div class="jeu__board" id="gameBoard">
+                    <!-- Les cartes seront générées par JavaScript -->
+                </div>
+
+                <div class="jeu__message" id="message">
+                    <p class="jeu__message-text">Cliquez sur deux cartes pour commencer !</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Règles -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section__title">Règles du jeu</h2>
+            <div class="regles">
+                <div class="regles__card">
+                    <div class="regles__icon">🎯</div>
+                    <h3 class="regles__title">Objectif</h3>
+                    <p class="regles__text">Retournez les cartes deux par deux pour trouver les paires qui associent une
+                        valeur de la République à sa définition.</p>
+                </div>
+                <div class="regles__card">
+                    <div class="regles__icon">📋</div>
+                    <h3 class="regles__title">Comment jouer</h3>
+                    <ul class="regles__list">
+                        <li class="regles__list-item">Cliquez sur une carte pour la retourner</li>
+                        <li class="regles__list-item">Cliquez sur une deuxième carte</li>
+                        <li class="regles__list-item">Si les deux cartes forment une paire, elles restent visibles</li>
+                        <li class="regles__list-item">Sinon, elles se retournent automatiquement</li>
+                        <li class="regles__list-item">Trouvez toutes les 8 paires pour gagner !</li>
+                    </ul>
+                </div>
+                <div class="regles__card">
+                    <div class="regles__icon">🏆</div>
+                    <h3 class="regles__title">Apprendre en jouant</h3>
+                    <p class="regles__text">Ce jeu vous permet de découvrir et de mémoriser les valeurs fondamentales de
+                        la République française : Liberté, Égalité, Fraternité et Laïcité.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
