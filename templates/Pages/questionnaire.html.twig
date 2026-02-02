@@ -1,31 +1,78 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Contact{% endblock %}
+{% block title %}Questionnaire{% endblock %}
 
 {% block body %}
-    <section class="hero hero--presentation">
+    <section class="hero hero--quizz">
         <div class="container">
             <div class="hero__content">
-                <h2 class="hero__title">Questionnaire</h2>
+                <h2 class="hero__title">Questionnaire sur la République</h2>
+                <p class="hero__subtitle">Testez vos connaissances sur la République française</p>
             </div>
         </div>
     </section>
 
-    <section class="questionnaire">
+    <section class="section">
         <div class="container">
-            <div class="quizz">
-            <div class="quizz__question">{{ question }}</div>
-            <div class="quizz__answers">
-                {% for key, answer in answers %}
-                    <a href="{{path('app_quizz', {
-                        'previous': quizznumber, 
-                        'answer': key
-                    })}}">
-                        {{ answer }}
-                    </a>
-                {% endfor %}
+            <div class="quizz__layout">
+                <div class="quizz">
+                    {% if answers|length > 0 %}
+                        <div class="quizz__progress">
+                            <div class="quizz__progress-bar">
+                                <div class="quizz__progress-fill" style="width: {{ (quizznumber / 10) * 100 }}%"></div>
+                            </div>
+                            <span class="quizz__progress-text">Question {{ quizznumber + 1 }} / 10</span>
+                        </div>
+                        <div class="quizz__question">{{ question }}</div>
+                        <div class="quizz__answers">
+                            {% for key, answer in answers %}
+                                <a class="quizz__answer" href="{{ path('app_quizz', {
+                                    'previous': quizznumber,
+                                    'answer': key
+                                }) }}">
+                                    <span class="quizz__answer-letter">{{ ['A', 'B', 'C', 'D'][key] }}</span>
+                                    <span class="quizz__answer-text">{{ answer }}</span>
+                                </a>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="quizz__finished">
+                            <span class="quizz__finished-icon">🎉</span>
+                            <h3 class="quizz__finished-title">{{ question }}</h3>
+                            <p class="quizz__finished-text">Vous avez répondu correctement à toutes les questions sur la République française.</p>
+                            <a href="{{ path('app_quizz') }}" class="quizz__restart">Recommencer le quiz</a>
+                        </div>
+                    {% endif %}
+                </div>
+
+                <aside class="quizz__sidebar">
+                    {% if feedback is not null %}
+                        <div class="quizz__feedback quizz__feedback--{{ feedback.isCorrect ? 'correct' : 'wrong' }}">
+                            <div class="quizz__feedback-header">
+                                <span class="quizz__feedback-icon">{{ feedback.isCorrect ? '✅' : '❌' }}</span>
+                                <span class="quizz__feedback-label">{{ feedback.isCorrect ? 'Bonne réponse !' : 'Mauvaise réponse' }}</span>
+                            </div>
+                            <p class="quizz__feedback-question">{{ feedback.previousQuestion }}</p>
+                            <div class="quizz__feedback-answers">
+                                {% for key, answer in feedback.previousAnswers %}
+                                    <div class="quizz__feedback-answer
+                                        {{- feedback.isCorrect and key == feedback.correctAnswer ? ' quizz__feedback-answer--correct' : '' -}}
+                                        {{- not feedback.isCorrect and key == feedback.chosenAnswer ? ' quizz__feedback-answer--wrong' : '' -}}
+                                    ">
+                                        <span class="quizz__feedback-answer-letter">{{ ['A', 'B', 'C', 'D'][key] }}</span>
+                                        <span class="quizz__feedback-answer-text">{{ answer }}</span>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="quizz__sidebar-empty">
+                            <span class="quizz__sidebar-empty-icon">💡</span>
+                            <p class="quizz__sidebar-empty-text">Le résultat de votre réponse s'affichera ici.</p>
+                        </div>
+                    {% endif %}
+                </aside>
             </div>
         </div>
     </section>
-    
 {% endblock %}

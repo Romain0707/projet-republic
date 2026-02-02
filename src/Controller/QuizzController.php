@@ -71,14 +71,22 @@ final class QuizzController extends AbstractController
 
         // Vérifie si la réponse précédente était correcte
         $previousQuestion = $request->get('previous');
-        if ($previousQuestion !== null && $answerIndex !== null) {
-            if (isset($questions[$previousQuestion]) 
-                && $questions[$previousQuestion]['correct'] == $answerIndex) {
-                // Bonne réponse : on passe à la question suivante
+        $feedback = null;
+
+        if ($previousQuestion !== null && $answerIndex !== null && isset($questions[$previousQuestion])) {
+            $isCorrect = $questions[$previousQuestion]['correct'] == $answerIndex;
+            $feedback = [
+                'isCorrect' => $isCorrect,
+                'chosenAnswer' => (int) $answerIndex,
+                'correctAnswer' => $questions[$previousQuestion]['correct'],
+                'previousQuestion' => $questions[$previousQuestion]['question'],
+                'previousAnswers' => $questions[$previousQuestion]['answers'],
+            ];
+
+            if ($isCorrect) {
                 $quizznumber = $previousQuestion + 1;
             } else {
-                // Mauvaise réponse : on reste sur la même question
-                $quizznumber = $previousQuestion;
+                $quizznumber = (int) $previousQuestion;
             }
         }
 
@@ -89,11 +97,12 @@ final class QuizzController extends AbstractController
             $question = "Quiz terminé !";
             $answers = [];
         }
-        
+
         return $this->render('Pages/questionnaire.html.twig', [
             'quizznumber' => $quizznumber,
             'question' => $question,
             'answers' => $answers,
+            'feedback' => $feedback,
         ]);
     }
 }
