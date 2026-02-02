@@ -63,4 +63,37 @@ final class IndexController extends AbstractController
 
         return $this->render('Pages/valeurs.html.twig', []);
     }
+
+    #[Route('/jeuscore', name: 'jeu_save', methods: ['POST'])]
+    public function saveScore(Security $security, Request $request, EntityManagerInterface $em): JsonResponse 
+    {
+        
+        $user = $security->getUser();
+
+        if (!$user) {
+            return new JsonResponse(['error' => 'Utilisateur non connecté'], 401);
+        }
+
+        $data = json_decode($request->getContent(), true);
+
+        if (!isset($data['moves'])) {
+            return new JsonResponse(['error' => 'Moves manquant'], 400);
+        }
+
+        $moves = (int) $data['moves'];
+
+        $bestScore = $user->getBestscore();
+
+        // Si aucun score encore enregistré OU meilleur score
+        if ($bestScore === null || $moves < $bestScore) {
+            $user->setBestscore($moves);
+            $em->flush();
+        }
+
+        return new JsonResponse([
+            'success' => true,
+            'bestScore' => $user->getBestscore()
+        ]);
+    }
+
 }

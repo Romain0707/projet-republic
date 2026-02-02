@@ -34,8 +34,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $email = null;
 
-    #[ORM\Column]
+    #[ORM\Column(nullable: true)]
     private ?int $bestscore = null;
+
+
 
     public function getId(): ?int
     {
@@ -124,10 +126,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->bestscore;
     }
 
-    public function setBestscore(int $bestscore): static
+    public function setBestscore(?int $bestscore): static
     {
         $this->bestscore = $bestscore;
 
         return $this;
     }
+
 }

@@ -195,7 +195,6 @@ function endGame() {
     if (timerInterval) {
         clearInterval(timerInterval);
     }
-
     const elapsed = Math.floor((Date.now() - startTime) / 1000);
     const minutes = Math.floor(elapsed / 60);
     const seconds = elapsed % 60;
@@ -209,7 +208,7 @@ function endGame() {
         <p class="jeu__message-text">Temps : ${timeString} | Coups : ${moves}</p>
     `;
 
-    fetch('/jeu', {
+    fetch('/jeuscore', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -218,6 +217,22 @@ function endGame() {
         body: JSON.stringify({
             moves: moves
         })
+    })
+    .then(res =>res.json())
+    .then(data => {
+        const bestScoreSpan = document.getElementById('bestScore');
+        const text = bestScoreSpan.textContent.trim();
+
+        // Si vide → pas encore de score
+        const currentScore = text === '' ? null : parseInt(text, 10);
+        const newScore = parseInt(data.bestScore, 10);
+
+        // Mise à jour si :
+        // - aucun score existant
+        // - ou nouveau score meilleur
+        if (currentScore === null || isNaN(currentScore) || newScore < currentScore) {
+            bestScoreSpan.textContent = newScore;
+        }
     })
     .catch(error => console.error('Erreur:', error));
 }

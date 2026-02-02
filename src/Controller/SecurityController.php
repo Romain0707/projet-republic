@@ -47,7 +47,7 @@ class SecurityController extends AbstractController
         if($form->isSubmitted() && $form->isValid()) {
             $user->setRoles(['ROLE_USER']);
             $user->setPassword($passwordEncoder->hashPassword($user, $form->get('password')->getData()));
-            $user->setBestscore(0);
+            $user->setBestscore(null);
 
             $entityManager->persist($user);
 
