@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+    <section class="hero hero--presentation">
+        <div class="container">
+            <div class="hero__content">
+                <h2 class="hero__title">Questionnaire</h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="questionnaire">
+        <div class="container">
+            <div class="quizz">
+            <div class="quizz__question">{{ question }}</div>
+            <div class="quizz__answers">
+                {% for key, answer in answers %}
+                    <a href="{{path('app_quizz', {
+                        'previous': quizznumber, 
+                        'answer': key
+                    })}}">
+                        {{ answer }}
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    
+{% endblock %}

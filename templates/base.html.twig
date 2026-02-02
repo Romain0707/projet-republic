@@ -30,6 +30,7 @@
                         <li class="nav__item"><a href="{{ path('formation') }}" class="nav__link">Formations</a></li>
                         <li class="nav__item"><a href="{{ path('valeur') }}" class="nav__link">La République</a></li>
                         <li class="nav__item"><a href="{{ path('jeu') }}" class="nav__link">Jeu</a></li>
+                        <li class="nav__item"><a href="{{ path('app_quizz') }}" class="nav__link">Quizz</a></li>
                         <li class="nav__item"><a href="{{ path('contact') }}" class="nav__link">Contact</a></li>
                         {% if is_granted('ROLE_USER') == false %}
                             <li><a href="{{path('app_login')}}" class="nav__link">Connexion</a></li>
